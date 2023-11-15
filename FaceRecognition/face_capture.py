@@ -9,7 +9,7 @@ video_capture = cv2.VideoCapture(0)
 user_name = "Jack"
 NUM_IMGS = 400
 if not os.path.exists('data/{}'.format(user_name)):
-    os.mkdir('data/{}'.format(user_name))
+    os.makedirs('data/{}'.format(user_name))
 
 cnt = 1
 font = cv2.FONT_HERSHEY_SIMPLEX

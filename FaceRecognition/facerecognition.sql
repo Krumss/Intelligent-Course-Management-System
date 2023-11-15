@@ -42,7 +42,13 @@ INSERT INTO `Student` VALUES (1, "JACK", NOW(), '2021-01-20');
 UNLOCK TABLES;
 
 
-# Create TABLE 'Course'
+# Create TABLE 'Course' (
+  'course_id' int NOT NULL,
+  'course_name' varchar(150) NOT NULL,
+  'classroom' varchar(10) NOT NULL,
+  'teacher_message' varchar(1000),
+  'zoom_link' varchar(80),
+)
 # Create TABLE 'Classroom'
 # Create other TABLE...
 

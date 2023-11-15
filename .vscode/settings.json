@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./GUI",
+        "./GUI/LoginPage"
+    ]
+}
