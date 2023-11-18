@@ -1,4 +1,3 @@
-import pyodbc
 import mysql.connector
 
 
@@ -20,10 +19,11 @@ class SqlConnection:
         )
         self.cursor = self.conn.cursor()
 
-    def validate_username(self, value):
-        query = f"select * from Students where Username = %s"
+    def get_username(self, value):
+        query = f"select Username from Students where Username = %s"
 
         self.cursor.execute(query, (value,))
         result = self.cursor.fetchone()
-
-        return result
+        if result == None:
+            return None
+        return result[0]
