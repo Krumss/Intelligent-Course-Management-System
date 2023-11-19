@@ -1,12 +1,14 @@
 import os
 import tkinter as tk
 from dotenv import load_dotenv
+from Pages.face import FacePage
 
-from LoginPage.login import LoginPage
-from info import InfoPage
+from Pages.login import LoginPage
+from Pages.password import PasswordPage
+from Pages.info import InfoPage
 from dbConn.mysql_connection import SqlConnection
 
-frames = {"LoginPage": LoginPage, "InfoPage": InfoPage}
+frames = {"LoginPage": LoginPage, "InfoPage": InfoPage, "PasswordPage": PasswordPage, "FacePage": FacePage}
 
 class tkinterApp(tk.Tk):
     def __init__(self, *args, **kwargs):

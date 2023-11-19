@@ -27,3 +27,12 @@ class SqlConnection:
         if result == None:
             return None
         return result[0]
+    
+    def get_password(self, username):
+        query = f"select Password from Students where Username = %s"
+
+        self.cursor.execute(query, (username,))
+        result = self.cursor.fetchone()
+        if result == None:
+            return None
+        return result[0]

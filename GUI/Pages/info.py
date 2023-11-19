@@ -15,6 +15,3 @@ class InfoPage(tk.Frame):
 
         zoom_link_label = tk.Label(self, text="Zoom Link: null")
         zoom_link_label.pack()
-
-        username_label = tk.Label(self, text=args["username"])
-        username_label.pack()

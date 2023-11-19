@@ -20,10 +20,9 @@ class LoginPage(tk.Frame):
         # Check if the username and password are correct
         # For the sake of simplicity, let's assume they are always correct
         if self.checkUserName():  # replace this with your own condition
-            messagebox.showinfo("Login", "Login successful!")
-            self.controller.show_frame("InfoPage", {"username": self.username_text})
+            self.controller.show_frame("PasswordPage", {"username": self.username_text})
         else:
-            messagebox.showinfo("Login", "Login failed!")
+            messagebox.showinfo("Login", "No this username!")
 
     def checkUserName(self):
         self.username_text = self.controller.sql.get_username(self.username.get())
