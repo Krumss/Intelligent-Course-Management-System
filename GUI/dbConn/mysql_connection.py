@@ -36,3 +36,10 @@ class SqlConnection:
         if result == None:
             return None
         return result[0]
+    
+    def get_name(self, name):
+        query = f"select name from Students where name = %s"
+        self.cursor.execute(query, (name))
+        result = self.cursor.fetchall()
+
+        return result

@@ -32,5 +32,5 @@ class PasswordPage(tk.Frame):
         return self.password_text == self.password.get()
     
     def change_to_face_page(self):
-        self.controller.show_frame("FacePage")
+        self.controller.show_frame("FacePage", {"username": self.username_text})
         return
