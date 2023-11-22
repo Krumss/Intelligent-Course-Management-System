@@ -43,3 +43,8 @@ class SqlConnection:
         result = self.cursor.fetchall()
 
         return result
+    
+    def update_login_date_time(self, date, time, username):
+        query =  f"update Students set login_date=%s login_time=%s where Username=%s"
+        self.cursor.execute(query, (date, time, username))
+        return

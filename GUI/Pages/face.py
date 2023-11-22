@@ -1,7 +1,7 @@
 import tkinter as tk
-from tkinter import messagebox
 import cv2
 import pickle
+from datetime import datetime
 from PIL import Image, ImageTk
 
 
@@ -43,15 +43,6 @@ class FacePage(tk.Frame):
     def checkUserName(self):
         self.username_text = self.controller.sql.get_username(self.username.get())
         return not self.username_text == None
-    
-    def update_image(self): 
-        ret, frame = cap.read()
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-        img = Image.fromarray(frame)
-        photo = ImageTk.PhotoImage(image=img)
-        self.panel.photo = photo
-        self.panel.configure(image=photo) 
-        self.after(1, self.update_image)
 
     def check_face(self):
         ret, frame = cap.read()
@@ -86,5 +77,9 @@ class FacePage(tk.Frame):
         print(self.face_name_text, self.username_text)
         if (self.face_name_text == self.username_text and self.timer <= 0):
             self.controller.show_frame("InfoPage")
+            date = datetime.utcnow()
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            self.controller.sql.update_login_date_time(date, current_time, self.username_text)
             return
         self.after(1, self.check_face)
